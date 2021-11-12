@@ -1,0 +1,12 @@
+<h1><%=link_to "Add New Item", new_welcome_path %></h1>
+
+<%@users.each do |user| %>
+	<%= user.email %>
+	<%=link_to "Edit", edit_welcome_path(user.id) %>
+	  <li><%= link_to "Destroy", welcome_path(user.id),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li> <br>
+				  <%=link_to "show", welcome_path(user.id) %>
+
+<% end %>
+ 

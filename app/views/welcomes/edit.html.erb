@@ -1,0 +1,7 @@
+<%= form_with model: @user, url: welcome_path(@user.id),method: :put do |form| %>
+  Email: <%=form.text_field :email %><br>
+ 
+  Password: <%=form.text_field :password %><br>
+  Confirm Password: <%=form.text_field :password_confirmation %><br>
+<%= form.select( :user_name, @cities.collect { |city| [city.name, city.id] },{include_blank: "Select something"},)%>  <%=form.submit "Save" %>
+<% end %>

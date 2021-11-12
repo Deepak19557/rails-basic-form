@@ -1,0 +1,16 @@
+<%= form_with model: User.new, url: welcomes_path do |form| %>
+  Email: <%=form.text_field :email %><br>
+   userName: <%=form.text_field :user_name%><br>
+
+  Male: <%= form.radio_button :gender, 'Male' %> <br />
+   Female: <%= form.radio_button :gender, 'Female' %> <br />
+
+  Indian <%= form.check_box :fruits, {multiple: true}, 'Indian', nil %>
+    American <%= form.check_box :fruits,{multiple: true},'American',nil %>
+    Western <%= form.check_box :fruits,{multiple: true},'Western',nil  %>
+     
+  Password: <%=form.text_field :password %><br>
+  Confirm Password: <%=form.text_field :password_confirmation %><br>
+  <%= form.select( :city_name, @cities.collect { |city| [city.name] },{include_blank: "Select something"},)%>
+  <%=form.submit "Save" %>
+<% end %>
